@@ -1,4 +1,5 @@
-Longest Common Subsequence (LCS) Project
+
+# Longest Common Subsequence (LCS) Project
 Descrição
 Este projeto implementa e compara dois algoritmos para encontrar a subsequência comum mais longa (LCS) entre duas strings. Um algoritmo utiliza programação dinâmica, enquanto o outro é uma implementação recursiva.
 
@@ -15,10 +16,5 @@ Os resultados das chamadas da função serão impressos no console. Para cada pa
 Visualização dos Resultados
 Você pode visualizar o resultado das chamadas de função na seguinte imagem:
 
-(/src/resultado.png)
+![Resultado](/src/resultado.png)
 
-Contribuição
-Para contribuir para este projeto, por favor faça um fork do repositório e crie um pull request.
-
-Licença
-Este projeto está sob a licença MIT.
