@@ -1,5 +1,5 @@
 import time
-
+from time import perf_counter
 def lcs_recursive(X, Y, m, n):
     start_time = time.time()
     result = lcs(X, Y, m, n)
@@ -17,15 +17,15 @@ def lcs(X, Y, m, n):
 
 
 def longest_common_subsequence(X, Y):
-    start_time = time.time()
+    start_time = perf_counter()
     # Obter o comprimento das duas sequências
     len_X = len(X)
     len_Y = len(Y)
-
     # Inicializar a matriz de programação dinâmica (dp) com zeros
     dp_matrix = [[0] * (len_Y + 1) for _ in range(len_X + 1)]
-
     # Preencher a matriz dp
+    # Como temos que calcular o valor para cada combinação de i (de 1 a m) e j (de 1 a n), o tempo total é O(m*n).
+    
     for i in range(1, len_X + 1):
         for j in range(1, len_Y + 1):
             # Quando os caracteres correspondentes nas duas sequências são iguais
@@ -34,8 +34,8 @@ def longest_common_subsequence(X, Y):
             else:
                 # Escolher o maior valor entre a célula acima e a célula à esquerda
                 dp_matrix[i][j] = max(dp_matrix[i - 1][j], dp_matrix[i][j - 1])
-
     # Reconstruir a subsequência comum mais longa a partir da matriz dp
+    
     lcs_result = []
     i, j = len_X, len_Y
     while i > 0 and j > 0:
@@ -47,14 +47,10 @@ def longest_common_subsequence(X, Y):
             i -= 1
         else:
             j -= 1
-
-
     # Converter a lista resultante em uma string e inverter para obter a LCS correta
     lcs_string = ''.join(reversed(lcs_result))
-    end_time = time.time()
-    execution_time = (end_time - start_time) * 1000 
-
-
+    end_time = perf_counter()
+    execution_time = (end_time - start_time) * 1000
     return {"execution time": f"{execution_time:.6f} ms", "size": str(len(lcs_string)), "result": lcs_string}
 
 # Exemplo de uso:
